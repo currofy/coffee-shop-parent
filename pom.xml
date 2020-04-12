@@ -19,6 +19,7 @@
 
     <modules>
         <module>coffee-eureka-server</module>
+        <module>coffee-shop-client</module>
     </modules>
 
     <build>
