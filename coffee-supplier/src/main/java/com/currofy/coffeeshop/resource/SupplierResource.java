@@ -1,8 +1,5 @@
 package com.currofy.coffeeshop.resource;
 
-import io.quarkus.eureka.client.EurekaClient;
-
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -11,22 +8,14 @@ import javax.ws.rs.core.Response;
 import java.util.Collections;
 
 @Path("/info")
-public class ShopResource {
-
-    @Inject
-    EurekaClient eurekaClient;
+public class SupplierResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        String coffeeSupplier = "coffee-supplier";
-        String serverResponse = eurekaClient.app(coffeeSupplier)
-                .path("/info")
-                .request(MediaType.TEXT_PLAIN)
-                .get()
-                .readEntity(String.class);
-        return String.join(",", "coffee-shop client requested: ", serverResponse);
+        return "hello from your favourite supplier... always delivering your coffee";
     }
+
 
     @GET
     @Path("/health")
