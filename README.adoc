@@ -1,0 +1,50 @@
+= COFFEE-SHOP QUARKUS EXAMPLE
+
+== OVERVIEW
+
+This is a coffee shop chain which requests for coffee bean to a remote supplier. The supplier might have multiple locations
+to attend coffee-shops and deliver their order.
+
+So, supplier might open new stores and coffee-shop chain can open multiple shops, so if orders are requested directly to the
+same store, this ends up overwhelmed and new stores might not receive any order. Avoiding this situation can be solved with
+a load balancer, which redirects the orders to the stores registered at same place, doing their requests through it,
+letting them all have the same load.
+
+== WHAT IS THIS PROJECT ABOUT?
+
+This project aims is testing Quarkus Eureka, a dependency which is located at:
+
+https://github.com/fmcejudo/quarkus-eureka
+
+This dependency lets integrate Quarkus framework with Eureka and requesting to services through their names, rather their specific
+hostname.
+
+=== But what are you talking about? Quarkus, Eureka, who are those guys?
+
+Quarkus Framework is a Java framework which can work with Native images and bootstrap your application really quick, which can
+make it able to work in a serverless environment.
+
+You can find more information at https://quarkus.io/
+
+Quarkus integrates with multiple services and a new toy for developers.
+
+In the other hand we have Eureka, which is an original product from `Netflix` and its job is a discovery service, in which the services in
+network are registered and it delivers those service locations to clients to make their requests. This makes application scalable as new instances
+are post in here and they are hit attending choice algorithms, such as round robin.
+
+https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-eureka-server.html
+
+== HOW TO
+
+The project is made of a parent project and three submodules. Cloning the project we can find:
+
+* **coffee-eureka-server**: Which is the Eureka service in which other services are going to be registered when pop up.
+* **coffee-shop-client**: This is the shop which should request for coffee bean.
+* **coffee-supplier**: The store which deliver the coffee bean to shops.
+
+Each project is built with different JVM, so Quarkus Native Image with GraalVM latest version is a Java 11 compatible,
+but the Eureka server app is with Java 14.
+
+So, to build the application you might well run the `.build.sh` script which define the environment variables to execute
+each project with their `jdk.version` property.
+
