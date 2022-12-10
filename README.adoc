@@ -43,7 +43,7 @@ The project is made of a parent project and three submodules. Cloning the projec
 * **coffee-supplier**: The store which deliver the coffee bean to shops.
 
 Each project is built with different JVM, so Quarkus Native Image with GraalVM latest version is a Java 11 compatible,
-but the Eureka server app is with Java 14.
+but the Eureka server app is with Java 17.
 
 So, to build the application you might well run the `.build.sh` script which define the environment variables to execute
 each project with their `jdk.version` property.

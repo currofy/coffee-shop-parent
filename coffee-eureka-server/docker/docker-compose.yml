@@ -1,0 +1,20 @@
+#This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+version: '3.8'
+services:
+  jhipster-registry:
+    image: jhipster/jhipster-registry 
+    environment:
+      - JHIPSTER_SLEEP=20
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=dev
+        #- SPRING_SECURITY_USER_PASSWORD=admin
+        #- JHIPSTER_REGISTRY_PASSWORD=admin
+        #- SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
+        #- SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/
+      # - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=git
+      # - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_URI=https://github.com/jhipster/jhipster-registry/
+      # - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_PATHS=central-config
+    # If you want to expose these ports outside your dev PC,
+    # remove the "127.0.0.1:" prefix
+    ports:
+      - 8762:8761
